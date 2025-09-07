@@ -10,7 +10,7 @@ public class Principal {
         Scanner entrada = new Scanner(System.in);
         int opcion;
         do {
-            System.out.println("\n===== MENU =====");
+            System.out.println("\n MENU ")
             System.out.println("1. Jugar con 2 dados");
             System.out.println("2. Jugar con 3 dados");
             System.out.println("3. Calcular IMC");
@@ -28,7 +28,7 @@ public class Principal {
                     jugarTresDados();
                     break;
                 case 3:
-                    IMC();  // 👈 ya no se usa println aquí
+                    IMC();
                     break;
                 case 4:
                     System.out.println("Opción 4 aún no tiene nada");
@@ -37,7 +37,7 @@ public class Principal {
                     System.out.println("Opción 5 aún no tiene nada");
                     break;
                 case 6:
-                    System.out.println("Saliendo... 👋");
+                    System.out.println("Salir");
                     break;
                 default:
                     System.out.println("Opción no válida, intenta de nuevo.");
