@@ -10,11 +10,11 @@ public class Principal {
         Scanner entrada = new Scanner(System.in);
         int opcion;
         do {
-            System.out.println("\n MENU ")
+            System.out.println("\n MENU ");
             System.out.println("1. Jugar con 2 dados");
             System.out.println("2. Jugar con 3 dados");
             System.out.println("3. Calcular IMC");
-            System.out.println("4. (Vacío)");
+            System.out.println("4. Adivina el numero");
             System.out.println("5. (Vacío)");
             System.out.println("6. Salir");
             System.out.print("Elige una opcion: ");
@@ -31,7 +31,7 @@ public class Principal {
                     IMC();
                     break;
                 case 4:
-                    System.out.println("Opción 4 aún no tiene nada");
+                    AdivinaelNumero();
                     break;
                 case 5:
                     System.out.println("Opción 5 aún no tiene nada");
@@ -46,6 +46,7 @@ public class Principal {
 
         entrada.close();
     }
+
 
     public static void jugarDosDados() {
         Random aleatorio = new Random();
@@ -132,4 +133,31 @@ public class Principal {
             System.out.println("Obesidad extrema ");
         }
     }
+
+
+    public static void AdivinaelNumero() {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
+
+        int numeroSecreto = random.nextInt(50) + 1;
+        int intento;
+
+        System.out.println(" Bienvenido al juego de Adivinar el Número ");
+        System.out.println("Piensa un número entre 1 y 50. ¡Adivina cuál es!");
+
+        do {
+            System.out.print("Ingresa tu número: ");
+            intento = scanner.nextInt();
+
+            if (intento < numeroSecreto) {
+                System.out.println("El número es más grande ");
+            } else if (intento > numeroSecreto) {
+                System.out.println("El número es más pequeño ");
+            } else {
+                System.out.println("Has adivinado el número");
+            }
+        } while (intento != numeroSecreto);
+
+    }
+
 }
