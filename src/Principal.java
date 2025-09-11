@@ -2,6 +2,8 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Principal {
+    private static Object Carreraentredosjugadore;
+
     public static void main(String[] args) {
         menu();
     }
@@ -15,7 +17,7 @@ public class Principal {
             System.out.println("2. Jugar con 3 dados");
             System.out.println("3. Calcular IMC");
             System.out.println("4. Adivina el numero");
-            System.out.println("5. (Vacío)");
+            System.out.println("5. Carrera entre dos jugadores");
             System.out.println("6. Salir");
             System.out.print("Elige una opcion: ");
             opcion = entrada.nextInt();
@@ -34,7 +36,7 @@ public class Principal {
                     AdivinaelNumero();
                     break;
                 case 5:
-                    System.out.println("Opción 5 aún no tiene nada");
+                    Carreraentredosjugadore();
                     break;
                 case 6:
                     System.out.println("Salir");
@@ -46,7 +48,6 @@ public class Principal {
 
         entrada.close();
     }
-
 
     public static void jugarDosDados() {
         Random aleatorio = new Random();
@@ -159,5 +160,53 @@ public class Principal {
         } while (intento != numeroSecreto);
 
     }
+    public static void Carreraentredosjugadore() {
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random ();
 
+        int c1 = 0;
+        int c2 = 0;
+        int meta = 50;
+
+        System.out.println("Bienvenidos al juego de las carreras");
+        System.out.println("¡Ha ganar!");
+
+        while (c1 < meta && c2 < meta) {
+
+            int dado1 = random.nextInt(6) + 1;
+            if (dado1 == 6) {
+                c1 -= 2;
+            } else if (dado1 == 3) {
+                c1 += 3;
+            } else {
+                c1 += dado1;
+            }
+            if (c1 < 0) c1 = 0;
+
+            int dado2 = random.nextInt(6) + 1;
+            if (dado2 == 6) {
+                c2 -= 2;
+            } else if (dado2 == 3) {
+                c2 += 3;
+            } else {
+                c2 += dado2;
+            }
+            if (c2 < 0) c2 = 0;
+
+
+            System.out.println("Corredor 1 lanzó " + dado1 + "  pasos: " + c1);
+            System.out.println("Corredor 2 lanzó " + dado2 + " pasos: " + c2);
+
+        }
+
+
+        if (c1 >= meta && c2 >= meta) {
+            System.out.println("¡Empate! Ambos corredores llegaron a la meta.");
+        } else if (c1 >= meta) {
+            System.out.println("Corredor 1 gana la carrera con " + c1 + " pasos!");
+        } else {
+            System.out.println("¡Corredor 2 gana la carrera con " + c2 + " pasos!");
+        }
+    }
 }
+
